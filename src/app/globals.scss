@@ -1,0 +1,201 @@
+$brandExperiment: #5865f2;
+$brandExperiment560: #4752c4;
+$brandExperiment600: #3c45a5;
+$brandExperimentOutline: #5865f2;
+
+$buttonSecondaryBackground: #4e5058;
+$buttonSecondaryBackgroundHover: #6d6f78;
+$buttonSecondaryBackgroundActive: #80848e;
+
+$buttonDangerBackground: #da373c;
+$buttonDangerBackgroundHover: #a12828;
+$buttonDangerBackgroundActive: #8f2022;
+$buttonOutlineDangerBorder: #f23f42;
+
+$buttonPositiveBackground: #248046;
+$buttonPositiveBackgroundHover: #1a6334;
+$buttonPositiveBackgroundActive: #15562b;
+
+$linkColor: #00a8fc;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  svg {
+    margin: 0 4px 0 0;
+  }
+
+  &.button {
+    font: 500 14px/16px var(--font-gg_sans);
+    padding: 2px 16px;
+    border-radius: 3px;
+    user-select: none;
+
+    &:not(.border) {
+      &.primary {
+        color: white;
+        background: $brandExperiment;
+
+        &:hover {
+          background: $brandExperiment560;
+        }
+
+        &:active {
+          background: $brandExperiment600;
+        }
+      }
+
+      &.secondary {
+        color: white;
+        background: $buttonSecondaryBackground;
+
+        &:hover {
+          background: $buttonSecondaryBackgroundHover;
+        }
+
+        &:active {
+          background: $buttonSecondaryBackgroundActive;
+        }
+      }
+
+      &.danger {
+        color: white;
+        background: $buttonDangerBackground;
+
+        &:hover {
+          background: $buttonDangerBackgroundHover;
+        }
+
+        &:active {
+          background: $buttonDangerBackgroundActive;
+        }
+      }
+
+      &.positive {
+        color: white;
+        background: $buttonPositiveBackground;
+
+        &:hover {
+          background: $buttonPositiveBackgroundHover;
+        }
+
+        &:active {
+          background: $buttonPositiveBackgroundActive;
+        }
+      }
+    }
+
+    &.border {
+      &.primary {
+        color: white;
+        border: 1px solid $brandExperimentOutline;
+
+        &:hover {
+          border-color: $brandExperiment560;
+          background: $brandExperiment560;
+        }
+
+        &:active {
+          border-color: $brandExperiment600;
+          background: $brandExperiment600;
+        }
+      }
+
+      &.danger {
+        color: white;
+        border: 1px solid $buttonOutlineDangerBorder;
+
+        &:hover {
+          border-color: $buttonDangerBackground;
+          background: $buttonDangerBackground;
+        }
+
+        &:active {
+          border-color: $buttonDangerBackgroundActive;
+          background: $buttonDangerBackgroundActive;
+        }
+      }
+    }
+
+    &.link {
+      color: $linkColor;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.sm {
+      height: 32px;
+      min-width: 60px;
+    }
+
+    &.md {
+      height: 38px;
+      min-width: 96px;
+    }
+
+    &.lg {
+      height: 44px;
+      min-width: 130px;
+    }
+  }
+}
+
+*:has(> .shine) {
+  overflow: hidden;
+  position: relative;
+}
+
+.shine {
+  width: 100%;
+  height: 150%;
+  display: block;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  animation: _shine 2s ease-out infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 150%;
+    background: rgba(white, 0.1);
+    display: block;
+    position: absolute;
+    top: -20px;
+    rotate: 30deg;
+  }
+
+  &::before {
+    width: 56px;
+    left: -2px;
+  }
+
+  &::after {
+    width: 16px;
+    left: 17px;
+  }
+}
+
+@keyframes _shine {
+  0% {
+    translate: -400% 0;
+  }
+  100% {
+    translate: 400% 0;
+  }
+}
